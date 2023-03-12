@@ -11,5 +11,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true
   },
-  "include": ["./.eslintrc.cjs", "./.lintstagedrc.cjs", "src"]
+  "include": [
+    "./.eslintrc.cjs",
+    "./.lintstagedrc.cjs",
+    "./tsup.config.ts",
+    "src"
+  ]
 }
