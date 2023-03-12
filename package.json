@@ -1,0 +1,33 @@
+{
+  "name": "vite-plugin-precompile-modules",
+  "version": "0.1.0",
+  "description": "A vite plugin for precompiling code into virtual modules",
+  "author": "Hampus Tågerud <hampus.tagerud@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "eslint src",
+    "prepare": "husky install"
+  },
+  "peerDependencies": {
+    "vite": "^4.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@types/node": "^18.13.0",
+    "@types/prettier": "^2.7.2",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.1",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4"
+  }
+}
