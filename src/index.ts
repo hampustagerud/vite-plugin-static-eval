@@ -1,9 +1,2 @@
-import type { Plugin } from 'vite';
-
-interface Options {}
-
-export default function (opts: Options): Plugin {
-  return {
-    name: 'precompile-modules',
-  };
-}
+export { createPlugin as default } from './vite';
+export { defineModule } from './define';

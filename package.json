@@ -5,10 +5,9 @@
   "author": "Hampus Tågerud <hampus.tagerud@gmail.com>",
   "license": "MIT",
   "private": true,
-  "main": "./src/index.ts",
   "type": "module",
   "typesVersions": {
-    ">=3.9": {
+    ">=4.0": {
       "*": [
         "./dist/*"
       ]
@@ -20,6 +19,11 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
+    },
+    "./worker": {
+      "import": "./dist/worker.js",
+      "require": "./dist/worker.cjs",
+      "types": "./dist/worker.d.ts"
     }
   },
   "scripts": {
