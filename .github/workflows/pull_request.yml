@@ -1,0 +1,40 @@
+name: Pull request
+
+on:
+  push:
+    branches: '!master'
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    name: Test & Lint
+    steps:
+      - name: Checkout code base
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 16
+          cache: yarn
+
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile
+
+      - name: Lint code
+        run: |
+          yarn lint
+
+      - name: Test code
+        run: |
+          yarn test
+
+      - name: Lint commit messages
+        if: github.event.pull_request.commits > 0
+        run: |
+          yarn commitlint --from HEAD~${{ github.event.pull_request.commits }} --to HEAD

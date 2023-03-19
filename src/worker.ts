@@ -27,7 +27,7 @@ if (!nodeModulesPath.endsWith('node_modules')) {
   throw new Error('Found no place to store compiled files');
 }
 
-const tempDir = path.resolve(nodeModulesPath, '.cache', 'precompiled');
+const tempDir = path.resolve(nodeModulesPath, '.cache', 'static-eval');
 
 const { outputFiles } = buildSync({
   entryPoints: [filePath],

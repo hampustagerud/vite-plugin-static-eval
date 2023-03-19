@@ -1,10 +1,9 @@
 {
-  "name": "vite-plugin-precompile-modules",
-  "version": "0.1.0",
-  "description": "A vite plugin for precompiling code into virtual modules",
+  "name": "vite-plugin-static-eval",
+  "version": "0.0.0",
+  "description": "A vite plugin for statically evaluating code",
   "author": "Hampus Tågerud <hampus.tagerud@gmail.com>",
   "license": "MIT",
-  "private": true,
   "type": "module",
   "typesVersions": {
     ">=4.0": {
@@ -27,17 +26,22 @@
     }
   },
   "scripts": {
-    "build": "tsup",
+    "compile": "tsup",
     "lint": "eslint src",
     "prepare": "husky install",
+    "release": "release-it",
     "test": "vitest --passWithNoTests"
   },
+  "files": [
+    "dist"
+  ],
   "peerDependencies": {
     "vite": "^4.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.2",
+    "@release-it/conventional-changelog": "^5.1.1",
     "@types/node": "^18.13.0",
     "@types/prettier": "^2.7.2",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
@@ -51,9 +55,13 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.1.1",
     "prettier": "^2.8.4",
+    "release-it": "^15.9.0",
     "tsup": "^6.6.3",
     "typescript": "^4.9.5",
     "vite": "^4.1.4",
     "vitest": "^0.29.3"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }

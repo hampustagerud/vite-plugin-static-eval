@@ -1,0 +1,59 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+  release-action:
+    runs-on: ubuntu-latest
+    environment: production
+    name: Release new version
+    steps:
+      - name: Checkout code base
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ env.GH_TOKEN }}
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 14
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint code
+        run: yarn lint --quiet
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Typecheck code
+        run: yarn tsc
+
+      - name: Compile code
+        run: yarn compile
+
+      - name: Package compiled code
+        run: yarn pack
+
+      - name: Prepare release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+
+      - name: Release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          yarn release

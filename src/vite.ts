@@ -49,7 +49,8 @@ export function createPlugin(inputConfig: Readonly<Config>): Plugin {
   // const dtsCache: Record<string, string> = {};
 
   return {
-    name: 'precompile-modules',
+    name: 'static-eval',
+
     resolveId: (id) => modules.get(id)?.resolvedId,
 
     async configResolved() {
