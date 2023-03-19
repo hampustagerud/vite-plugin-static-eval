@@ -57,7 +57,6 @@ fs.writeFileSync(file.path, file.contents);
 
 (async function () {
   const data = await import(file.path);
-  console.log('data', data);
 
   function formatValue(value: unknown): string {
     if (
@@ -103,6 +102,5 @@ fs.writeFileSync(file.path, file.contents);
 
   const code = [...variables, ...functions].join('\n\n');
 
-  console.log(code);
   parent.postMessage(code);
 })();

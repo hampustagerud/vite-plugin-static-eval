@@ -1,2 +1,2 @@
-export { createPlugin as default } from './vite';
+export { createPlugin as default } from './plugin';
 export { defineModule } from './define';

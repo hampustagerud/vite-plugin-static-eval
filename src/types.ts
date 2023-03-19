@@ -27,3 +27,11 @@ export interface ModuleDefinition<
   variables: V;
   functions: F;
 }
+
+interface ModuleInputConfig {
+  path: string;
+}
+
+type ModuleInput = string | ModuleInputConfig;
+
+export type ModuleInputMap = Record<string, ModuleInput>;
