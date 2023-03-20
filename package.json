@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-static-eval",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A vite plugin for statically evaluating code",
   "author": "Hampus Tågerud <hampus.tagerud@gmail.com>",
   "license": "MIT",
